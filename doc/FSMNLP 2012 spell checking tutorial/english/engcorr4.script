@@ -1,0 +1,15 @@
+# Combining rules and med 
+
+define W @txt"engwords.txt";
+define C1 [?* [?:0|0:?|?:?-?] ?*];
+
+define CommonErrors [ c i e v e -> c e i v e ,,
+                      t e h -> t h e  || .#. _ .#. ];
+
+define Corrector  [CommonErrors .o. W] .P. [C1 .o. W] ;  # priority union of rules and med
+#define Corrector [C1.o.W];                              # only med
+#define Corrector [CommonErrors|C1] .o. W ;              # union of rules and med
+
+regex Corrector;
+
+down recieve

@@ -1,0 +1,6 @@
+define W @txt"engwords.txt";
+define C1 [?* [?:0|0:?|?:?-?] ?*];
+
+regex C1 .o. W;
+
+down caxt
